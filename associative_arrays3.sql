@@ -14,10 +14,11 @@ begin
   
   idx := emp_list.first;
   while idx is not null loop
-    --emp_list(idx).salary := emp_list(idx).salary + emp_list(idx).salary*0.2;
-    --insert into employees_salary_history values emp_list(idx);
-    dbms_output.put_line(emp_list(idx).first_name||' '||emp_list(idx).last_name||
-    ' salary: '||emp_list(idx).salary||' insert date:'||emp_list(idx).insert_date);
+    emp_list(idx).salary := emp_list(idx).salary + emp_list(idx).salary*0.2;
+    insert into employees_salary_history values emp_list(idx);
+--    dbms_output.put_line(emp_list(idx).first_name||' '||emp_list(idx).last_name||
+--    ' salary: '||emp_list(idx).salary||' insert date:'||emp_list(idx).insert_date);
+    dbms_output.put_line('row inserted');
     idx:=emp_list.next(idx);
   end loop;
 
