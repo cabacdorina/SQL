@@ -1,0 +1,5 @@
+create or replace trigger first_trigger 
+before insert or update on employees_copy 
+begin
+  dbms_output.put_line('An insert or update occured in the employees_copy table');
+end;
