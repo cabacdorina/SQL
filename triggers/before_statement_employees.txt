@@ -1,0 +1,5 @@
+create or replace trigger before_statement_employees
+before insert or update on employees 
+begin
+  dbms_output.put_line('Before statement trigger is fired');
+end;

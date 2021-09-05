@@ -1,0 +1,5 @@
+create or replace trigger after_statement_employees
+after insert or update on employees 
+begin
+  dbms_output.put_line('After statement trigger is fired');
+end;

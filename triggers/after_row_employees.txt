@@ -1,0 +1,6 @@
+create or replace trigger after_row_employees
+after insert or update on employees 
+for each row
+begin
+  dbms_output.put_line('After row trigger is fired');
+end;
