@@ -14,7 +14,7 @@ CREATE TABLE employees (
   department_id number(4)
 );
 
-insert into employees values(100,'Cabac', 'Dorina', 'dorina@yahoo.com','023','27-FEB-2020',1,null,null,1,1);
+insert into employees values(100,'Cabac', 'Dorina', 'dorina@yahoo.com','023','27-FEB-2020',1,3000,null,1,1);
 insert into employees values(101,'Ginghina', 'Marina', 'marina@yahoo.com','024','25-FEB-2020',1,2500,null,1,1);
 insert into employees values(102,'Bodnar', 'Ana', 'ana@yahoo.com','023','27-FEB-2020',1,2600,null,1,1);
 select * from employees;
