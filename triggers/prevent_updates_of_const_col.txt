@@ -1,0 +1,6 @@
+create or replace trigger prevent_updates_of_const_col
+  before update of hire_date, salary on employees
+  for each row
+  begin
+    raise_application_error(-20005,'You cannot modify hire_date and salary columns!');
+  end;
