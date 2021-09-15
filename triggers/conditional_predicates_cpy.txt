@@ -1,0 +1,26 @@
+create or replace trigger conditional_predicates_cpy
+before insert or update or delete on employees 
+referencing old as O new as N
+for each row
+begin
+  dbms_output.put_line('Before row trigger is fired');
+  dbms_output.put_line('the salary of employee ' || :o.employee_id 
+  || ' -> Before: '|| :o.salary || ' After: ' || :n.salary); 
+  
+  if inserting then
+    if :n.hire_date > sysdate then
+      raise_application_error(-20000,'You cannot enter a future hire');
+    end if;
+    dbms_output.put_line('An INSERT occured on employees table');
+    elsif updating ('salary') then
+        if :n.salary > 50000 then
+          raise_application_error(-20002,'A salary connot be hire then 50000');
+        end if;
+        dbms_output.put_line('A SALARY COLUMN UPDATE occured on employees table');
+    elsif  updating then
+      dbms_output.put_line('An UPDATE occured on employees table');
+    elsif deleting then
+        raise_application_error(-20001,'You cannot delete from employees table');
+        dbms_output.put_line('A DELETE occured on employees table');
+  end if;
+end;
